@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Baixe Tudo Aqui</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        function sair() {
+            alert("ATÉ MAIS!! VOLTE SEMPRE")
+        }
+
+        function validar() {
+            var nome = form1.txtnome.value;
+            var senha = form1.txtsenha.value;
+
+            if (nome == "") {
+                alert('Você precisa informar seu nome e sua Senha!!!');
+
+                form1.nome.focus();
+                return false;
+            }
+            if (senha == "") {
+                alert('Você precisa informar seu nome e sua Senha!!!');
+                form.senha.focus();
+            }
+
+
+        }
+    </script>
+</head>
+
+<body class="body">
+    <div class="Painel">
+        <div class="Login">
+            <form name="form1" action="downloads.html" method="POST">
+                <div class="form-group">
+                    <label for="txtnome"></label>
+                    <input type="text" class="form-control" name="txtnome" id="txtnome" aria-describedby="" placeholder="login">
+                    <small id="" class="form-text text-muted"></small>
+                </div>
+                <b></b>
+                <b></b>
+                <b></b>
+                <div class="form-group">
+                    <label for="txtsenha"></label>
+                    <input type="password" class="form-control" name="txtsenha" id="txtsenha" aria-describedby="" placeholder="senha">
+                    <small id="" class="form-text text-muted"></small>
+                </div>
+                <b></b>
+                <b></b>
+                <b></b>
+                <button id="btnEnviar" type="submit" onclick="return validar()" class="btnEnviar">Entrar</a></a>
+            </button>
+                <button id="btnSair" type="reset" onclick="sair()" class="btnSair">Sair</button>
+            </form>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>

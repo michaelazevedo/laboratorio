@@ -1,0 +1,92 @@
+.Login {
+    width: 450px;
+    height: 450px;
+    border: 1px inherit;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+
+.body {
+    background-color: black;
+    background-image: url(https://http2.mlstatic.com/papel-de-parede-auto-adesivo-game-assassins-creed-5m-D_NQ_NP_138801-MLB20420773183_092015-F.webp);
+}
+
+.btnEnviar {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background: -webkit-gradient( linear, left top, left bottom, from(#a3a3a3), color-stop(0.50, #3b3b3b), color-stop(0.50, #242424), to(#000000));
+    background: linear-gradient( top, #a3a3a3 0%, #3b3b3b 50%, #242424 50%, #000000);
+    border-radius: 10px;
+    border: 1px solid #000000;
+    box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 1px rgba(255, 255, 255, 0.6);
+    text-shadow: 0px -1px 0px rgba(000, 000, 000, 1), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.btnSair {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background: -webkit-gradient( linear, left top, left bottom, from(#a3a3a3), color-stop(0.50, #3b3b3b), color-stop(0.50, #242424), to(#000000));
+    background: linear-gradient( top, #a3a3a3 0%, #3b3b3b 50%, #242424 50%, #000000);
+    border-radius: 10px;
+    border: 1px solid #000000;
+    box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 1px rgba(255, 255, 255, 0.6);
+    text-shadow: 0px -1px 0px rgba(000, 000, 000, 1), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.Painel {
+    background-image: url(http://getwallpapers.com/wallpaper/full/8/8/4/33463.jpg);
+    border: 1px solid grey;
+    width: 900px;
+    height: auto;
+    margin-left: 350px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    align-content: center;
+    background-size: 900px, 900px;
+    background-repeat: inherit;
+}
+
+.PainelDown {
+    width: 900px;
+    height: auto;
+    margin-left: 350px;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    align-content: center;
+    background-size: 900px, 900px;
+    background-repeat: inherit;
+}
+
+.menus {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 40px;
+    background: -webkit-gradient( linear, left top, left bottom, from(#a3a3a3), color-stop(0.50, #3b3b3b), color-stop(0.50, #242424), to(#000000));
+    background: linear-gradient( top, #a3a3a3 0%, #3b3b3b 50%, #242424 50%, #000000);
+    border-radius: 10px;
+    border: 1px solid #000000;
+    box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 1px rgba(255, 255, 255, 0.6);
+    text-shadow: 0px -1px 0px rgba(000, 000, 000, 1), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.listaDown {
+    border: 1px solid grey;
+    width: 755px;
+    height: 800;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+    align-content: center;
+    background-size: 900px, 900px;
+    background-repeat: inherit;
+}
