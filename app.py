@@ -20,13 +20,7 @@ def salvar_dados(dados):
     with open(ARQUIVO_JSON, "w") as f:
         json.dump(dados, f, indent=4)
 
-# Função para limpar dados
-def limpar_dados():
-    st.session_state.rifas = []
-    salvar_dados([])
-    st.success("✅ Todos os dados foram excluídos com sucesso!")
-
-# Inicializa session_state com dados salvos
+# Inicializa session_state
 if 'rifas' not in st.session_state:
     dados_carregados = carregar_dados()
     for rifa in dados_carregados:
@@ -39,11 +33,16 @@ def calcular_total_vendido():
     return sum(rifa['valor'] for rifa in st.session_state.rifas if rifa['comprador'])
 
 # Interface Streamlit
-st.title("🎫 Sistema de Rifas")
+st.title("🎫 Rifas da Estefania - Grupo GBS")
 
 # Configurações na barra lateral
 st.sidebar.header("Configurações")
-valor_padrao = st.sidebar.number_input("Valor Padrão da Rifa (R$)", min_value=0.0, value=10.0, step=1.0)
+
+# Campo Chave PIX
+chave_pix = st.sidebar.text_input("Chave PIX para Pagamento", value="stefanieines1234@gmail.com")
+
+# Valor padrão da rifa
+valor_padrao = st.sidebar.number_input("Valor Padrão da Rifa (R$)", min_value=0.0, value=20.0, step=1.0)
 
 # Exibe o total vendido na barra lateral
 total_vendido = calcular_total_vendido()
@@ -56,11 +55,16 @@ menu = st.sidebar.selectbox(
     key="menu_principal"
 )
 
+# Mostra chave PIX no topo da tela principal
+st.info(f"📍 **Chave PIX para pagamento:** `{chave_pix}`")
+st.info("Após realizar a compra, por favor, envie o comprovante para o WhatsApp (43)9 8873 9952")
+
 # === MENU: Adicionar Número Único ===
 if menu == "Adicionar Número":
     st.header("➕ Adicionar Número de Rifa")
     numero = st.number_input("Número da Rifa", min_value=1, step=1, value=1)
     valor = st.number_input("Valor desta Rifa (R$)", min_value=0.0, value=valor_padrao, step=1.0)
+    
     if st.button("Adicionar"):
         for rifa in st.session_state.rifas:
             if rifa['numero'] == numero:
@@ -86,7 +90,6 @@ elif menu == "Adicionar Lote de Números":
     if st.button("Adicionar Todas as Rifas"):
         novas_rifas = []
         for num in range(inicio, fim + 1):
-            # Verifica se o número já existe
             if any(rifa['numero'] == num for rifa in st.session_state.rifas):
                 continue
             novas_rifas.append({
@@ -105,8 +108,17 @@ elif menu == "Adicionar Lote de Números":
 # === MENU: Comprar Rifa ===
 elif menu == "Comprar Rifa":
     st.header("🛒 Comprar uma Rifa")
-    numero = st.number_input("Número da Rifa", min_value=1, step=1, value=1)
+
+    # Lógica para sugerir o próximo número disponível
+    numeros_comprados = [rifa['numero'] for rifa in st.session_state.rifas if rifa['comprador']]
+    if numeros_comprados:
+        proximo_numero = max(numeros_comprados) + 1
+    else:
+        proximo_numero = 1
+
+    numero = st.number_input("Número da Rifa", min_value=1, step=1, value=proximo_numero)
     nome = st.text_input("Nome do Comprador")
+    
     if st.button("Comprar"):
         if nome.strip() == "":
             st.warning("Por favor, insira um nome válido.")
@@ -150,9 +162,11 @@ elif menu == "Sortear Rifa":
 
 # === BOTÃO PARA LIMPAR TODOS OS DADOS ===
 with st.sidebar.expander("⚠️ Limpar Dados"):
-    senha = st.text_input("Digite a senha de autorização", type="password")
+    senha_limpar = st.text_input("Digite a senha de autorização", type="password")
     if st.button("Limpar Dados"):
-        if senha == SENHA_AUTORIZACAO:
-            limpar_dados()
+        if senha_limpar == SENHA_AUTORIZACAO:
+            st.session_state.rifas = []
+            salvar_dados([])
+            st.success("✅ Todos os dados foram excluídos com sucesso!")
         else:
             st.error("❌ Senha incorreta!")
